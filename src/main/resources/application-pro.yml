@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/minggblog?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/minggblog?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
-    password: qq2890340612
+    password: 2890340612
 
   jpa:
     hibernate:
