@@ -1,0 +1,25 @@
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/minggblog?useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: qq2890340612
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#
+#logging:
+#  level:
+#    root: info
+#    com.mingg.minggblog: debug
+#  file:
+#    name: bloglog
+#    path: log/blog.log
+#
+#
+spring:
+  profiles:
+    active: dev
+

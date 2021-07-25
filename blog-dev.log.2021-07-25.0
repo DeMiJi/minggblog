@@ -1,0 +1,25 @@
+2021-07-25 23:55:06.386  INFO 7024 --- [restartedMain] c.mingg.minggblog.MinggblogApplication   : Starting MinggblogApplication using Java 14.0.1 on DESKTOP-SMT46NI with PID 7024 (E:\Project\idea_project\minggblog\target\classes started by Ashen in E:\Project\idea_project\minggblog)
+2021-07-25 23:55:06.388 DEBUG 7024 --- [restartedMain] c.mingg.minggblog.MinggblogApplication   : Running with Spring Boot v2.5.3, Spring v5.3.9
+2021-07-25 23:55:06.388  INFO 7024 --- [restartedMain] c.mingg.minggblog.MinggblogApplication   : The following profiles are active: dev
+2021-07-25 23:55:06.431  INFO 7024 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-25 23:55:06.432  INFO 7024 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-25 23:55:06.957  INFO 7024 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-07-25 23:55:06.967  INFO 7024 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2021-07-25 23:55:07.435  INFO 7024 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-07-25 23:55:07.443  INFO 7024 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-07-25 23:55:07.444  INFO 7024 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-07-25 23:55:07.550  INFO 7024 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-07-25 23:55:07.550  INFO 7024 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1118 ms
+2021-07-25 23:55:07.682  INFO 7024 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-25 23:55:07.715  INFO 7024 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-07-25 23:55:07.796  INFO 7024 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-25 23:55:07.861  INFO 7024 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-07-25 23:55:07.964  INFO 7024 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-07-25 23:55:07.978  INFO 7024 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-07-25 23:55:08.153  INFO 7024 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-25 23:55:08.160  INFO 7024 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-25 23:55:08.202  WARN 7024 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-07-25 23:55:08.399  WARN 7024 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-07-25 23:55:08.474  INFO 7024 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-07-25 23:55:08.508  INFO 7024 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-25 23:55:08.518  INFO 7024 --- [restartedMain] c.mingg.minggblog.MinggblogApplication   : Started MinggblogApplication in 2.575 seconds (JVM running for 3.231)
