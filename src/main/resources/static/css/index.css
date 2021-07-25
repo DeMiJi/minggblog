@@ -1,0 +1,131 @@
+.my_nav_padding{
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.my_footer_padding{
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+.my_center_padding{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.my_center_padding_small{
+    max-width: 60em !important;
+    margin: auto !important;
+}
+.my_center_padding_big{
+    max-width: 90em !important;
+    margin: auto !important;
+}
+.my_padding_min{
+    padding: 0.3em !important;
+}
+.my_padding{
+    padding: 1em!important;
+}
+.my_padding_lr{
+    padding-left: 4em!important;
+    padding-right: 4em!important;
+}
+.my_padding_lr_mini{
+    padding-left: 2em!important;
+    padding-right: 2em!important;
+}
+.my_padding_td{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.my_center_padding_2{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+/*----text----*/
+.my_text{
+    font-weight: 300 !important;
+    letter-spacing: 1px !important;
+    line-height: 1.8;
+}
+.my_text_thin{
+    font-weight: 300 !important;
+}
+.my_text_spaced{
+    letter-spacing: 1px !important;
+}
+.my_text_lined{
+    line-height: 1.8;
+}
+/*----opacity----*/
+.my_text_opacity_min{
+    opacity: 0.8 !important;
+}
+.my_text_opacity_tiny{
+    opacity: 0.6 !important;
+}
+
+/*----display----*/
+.my_inline_block{
+    display: inline-block; !important;
+}
+.my_container{
+    max-width: 72em !important;
+    margin: auto !important;
+}
+/*----margin----*/
+.my_margin_tb_tiny{
+    margin-top: 0.3em!important;
+    margin-bottom: 0.3em!important;
+}
+.my_margin_bottom_mini{
+    margin-bottom: 0.5em!important;
+}
+/*----color----*/
+.my_font_black{
+    color: black !important;
+}
+
+
+.my_top_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/*手机适应*/
+.my_mobile_show{
+    display: none !important;
+}
+/*shadow*/
+.my_shadow_small{
+    -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+}
+@media screen and (max-width: 768px){
+    .my_mobile_hide{
+        display: none !important;
+    }
+    .my_mobile_show{
+        display: block !important;
+    }
+    .my_padding_lr{
+        padding-left: 0em!important;
+        padding-right: 0em!important;
+    }
+    .my_mobile_wide{
+        width: 100%!important;
+    }
+    .my_mobile_lr_clear{
+        padding-left: 0em!important;
+        padding-right: 0em!important;
+    }
+}
+
+/*----position----*/
+.my_fixed{
+    position: fixed!important;
+    z-index: 1!important;
+}
+.my_right_bottom{
+    bottom: 10em!important;
+    right: 0!important;
+}

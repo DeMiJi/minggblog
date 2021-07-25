@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <title>关于我页面</title>
+</head>
+<body>
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+    <!--导航-->
+    <nav class="ui inverted segment attached my_nav_padding my_shadow_small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">MingG'Blog</h2>
+                <a href="" class="m_item item my_mobile_hide"><i class="min home icon"></i>首页</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min idea icon"></i>分类</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min tags icon"></i>标签</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min clone icon"></i>归档</a>
+                <a href="" class="active m_item item my_mobile_hide"><i class="min info icon"></i>关于我</a>
+                <!--右边搜索-->
+                <div class="item right m_item my_mobile_hide">
+                    <div class="ui input icon">
+                        <input type="text" placeholder="Search...">
+                        <i class="icon search link"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--手机适配图标-->
+        <a href="#" class="ui menu toggle black icon button my_top_right my_mobile_show">
+            <i class="sidebar icon"></i>
+        </a>
+
+    </nav>
+    <!--中间-->
+    <div class="my_center_padding my_center_padding_big">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <!--右边图片-->
+                <div class="eleven wide column">
+                    <img src="https://picsum.photos/800/600?image=1005" alt="" class="ui rounded image">
+                </div>
+                <!--左边介绍-->
+                <div class="five wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="my_text">邓明金，一个学生开发者，在0和1的世界折腾的娃娃；一个终生学习者，将学习无限循环，希望结识新的小伙伴..</p>
+                        <p class="my_text">热爱编程，喜欢折腾，正在探索高效率的学习编程技术的方法....</p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui orange basic label my_margin_tb_tiny">唱</div>
+                        <div class="ui orange basic label my_margin_tb_tiny">跳</div>
+                        <div class="ui orange basic label my_margin_tb_tiny">rap</div>
+                        <div class="ui orange basic label my_margin_tb_tiny">篮球</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui teal basic label my_margin_tb_tiny">Java</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">Springboot</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">JavaScript</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">Golang</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">C</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">C#</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">Mysql</div>
+                        <div class="ui teal basic label my_margin_tb_tiny">Python</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="https://github.com/DeMiJi" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" data-content="2890340612"><i class="qq icon"></i></a>
+                        <a href="#" class="ui circular icon button"><i class="facebook icon"></i></a>
+                        <a href="#" class="ui Gmail circular icon button" data-content="d2890340612@gmail.com"><i class="mail icon"></i></a>
+                    </div>
+                    <div class="ui wechat_qr flowing popup transition hidden">
+                        <img src="../static/images/wx.png" alt="" class="ui rounded image" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+    <!--底部-->
+    <footer class="ui inverted segment vertical my_footer_padding">
+        <div class="ui center aligned container">
+            <div class="ui divided stackable inverted grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wx.png" class="ui rounded image" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header my_text_thin my_text_spaced">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">用户故事（User Story）</a>
+                        <a href="#" class="item">用户故事（User Story）</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header my_text_thin my_text_spaced">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: d2890340612@Gmail.com</a>
+                        <a href="#" class="item">QQ: 2890340612</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header my_text_thin my_text_spaced">MingG</h4>
+                    <p class="my_text_thin my_text_spaced my_text_opacity_min">这是我的个人博客，会分享一些自己关于编程、写作、思考相关的内容，希望能给你带来帮助....</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="my_text_thin my_text_spaced my_text_opacity_tiny">Copyright &copy 2020-2021 MingG Designed by MingG</p>
+        </div>
+    </footer>
+</body>
+<script>
+    <!--实现手机端下拉列表-->
+    $('.menu.toggle').click(function () {
+        $('.m_item ').toggleClass('my_mobile_hide');
+    });
+    <!--显示QQ号-->
+    $('.qq').popup();
+    <!--显示微信-->
+    $('.wechat').popup({
+        popup : $('.wechat_qr'),
+        on : 'hover',
+    });
+    <!--显示邮箱-->
+    $('.Gmail').popup();
+</script>
+</html>
