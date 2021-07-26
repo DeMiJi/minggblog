@@ -15,7 +15,6 @@ logging:
     root: info
     com.mingg.minggblog: debug
   file:
-    name: blog-dev.log
-    path: log/
+    name: log/blog-dev.log
 
     
