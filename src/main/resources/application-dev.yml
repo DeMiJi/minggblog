@@ -16,5 +16,3 @@ logging:
     com.mingg.minggblog: debug
   file:
     name: log/blog-dev.log
-
-    
