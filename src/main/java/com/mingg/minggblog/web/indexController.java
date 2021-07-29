@@ -15,4 +15,16 @@ public class indexController {
     public String blog(){
         return "blog";
     }
+    @GetMapping("/type")
+    public String type(){
+        return "types";
+    }
+    @GetMapping("/tag")
+    public String tag(){
+        return "tags";
+    }
+    @GetMapping("/archives")
+    public String archives(){
+        return "archives";
+    }
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理页面</title>
+</head>
+<body>
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<th:block th:replace="fragments :: script">
+
+</th:block>
+    <!--导航-->
+    <nav th:replace="admin/fragments :: muen(0)" class="ui inverted segment attached my_nav_padding my_shadow_small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">MingG'Blog后台管理平台</h2>
+                <a href="" class="active m_item item my_mobile_hide"><i class="min home icon"></i>博客</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min idea icon"></i>分类</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min tags icon"></i>标签</a>
+                <!--右边头像-->
+                <div class="right menu m_item my_mobile_hide">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="https://picsum.photos/100/100?image=1005">
+                            邓明金
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" th:href="@{/admin/logut}" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--手机适配图标-->
+        <a href="#" class="ui menu toggle black icon button my_top_right my_mobile_show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!--中间-->
+    <div class="my_center_padding my_center_padding_small">
+        <div class="ui container">
+            <div class="ui message success  large">
+                <h2>hi</h2>
+                <p>邓明金欢迎登录</p>
+            </div>
+
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<!--底部-->
+<footer th:replace="admin/fragments :: footer" class="ui inverted segment vertical my_footer_padding">
+
+</footer>
+</body>
+<script>
+    <!--实现手机端下拉列表-->
+    $('.menu.toggle').click(function () {
+        $('.m_item ').toggleClass('my_mobile_hide');
+    });
+    //登录下拉框
+    $('.ui.dropdown').dropdown({
+
+    });
+</script>
+</html>
