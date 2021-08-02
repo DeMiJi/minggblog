@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/index.css">
+    <title>分类管理页面</title>
+</head>
+<body>
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<th:block th:replace="fragments :: script">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+</th:block>
+    <!--导航-->
+    <nav th:replace="admin/fragments :: muen(2)"  class="ui inverted segment attached my_nav_padding my_shadow_small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">MingG'Blog后台管理平台</h2>
+                <a href="" class="active m_item item my_mobile_hide"><i class="min home icon"></i>博客</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min idea icon"></i>分类</a>
+                <a href="" class="m_item item my_mobile_hide"><i class="min tags icon"></i>标签</a>
+                <!--右边头像-->
+                <div class="right menu m_item my_mobile_hide">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="https://picsum.photos/100/100?image=1005">
+                            邓明金
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--手机适配图标-->
+        <a href="#" class="ui menu toggle black icon button my_top_right my_mobile_show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <a href="#" th:href="@{/admin/types/input}" class="item">新增</a>
+            <a href="#" th:href="@{/admin/types}" class="item active teal">列表</a>
+        </div>
+    </div>
+    <!--中间-->
+    <div class="my_center_padding my_center_padding_small">
+        <div class="ui container">
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">提示:</div>
+                <p th:text="${message}">Operation success</p>
+            </div>
+            <!--表单-->
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>分类名称</th>
+                        <th class="right aligned">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="type,iterStat: ${page.content}">
+                        <td th:text="${iterStat.count}">1</td>
+                        <td th:text="${type.name}">刻意练习</td>
+                        <td  class="right aligned">
+                            <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="ui mini teal button">编辑</a>
+                            <a href="javascript:void(0)" th:onclick="|javascript:oponmodal('${type.id}')|" class="ui mini red button" >删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="6">
+                            <div class="ui pagination menu" th:if="${page.totalPages>1}">
+                                <a class="item" th:href="@{/admin/types(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+                                <a class="item" th:href="@{/admin/types(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+                            </div>
+                            <a href="#" th:href="@{/admin/types/input}" class="ui basic teal button right floated">新增</a>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+<!--确认删除弹出层-->
+<div class="ui modal tiny">
+    <div class="header title">删除分类</div>
+    <div class="content">
+        <p>你确定删除这条分类吗？</p>
+    </div>
+    <div class="actions">
+        <a class="ui negative button">否</a>
+        <a class="ui positive button">是</a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!--底部-->
+    <footer th:replace="admin/fragments :: footer" class="ui inverted segment vertical my_footer_padding">
+
+    </footer>
+</body>
+<script>
+    <!--实现手机端下拉列表-->
+    $('.menu.toggle').click(function () {
+        $('.m_item ').toggleClass('my_mobile_hide');
+    });
+    //登录下拉框
+    $('.ui.dropdown').dropdown({
+
+    });
+
+    //消息窗关闭功能
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+    //弹出层
+    // $(".ui.red.button").on("click",function () {
+    //     $(".ui.modal").modal("show");
+    // })
+    function oponmodal(url) {
+        $(".ui.modal").modal({
+            onShow: function () {
+                console.log("正在显示");
+            },
+            onVisible: function () {
+                console.log("完全显示");
+            },
+            onHide: function () {
+                console.log("开始隐藏");
+            },
+            onHidden: function () {
+                console.log("完全隐藏");
+            },
+            onApprove:function () { //单击确认按钮
+                window.location.href ="types/" + url + "/delete";
+            },
+            onDeny:function () {  //单击取消按钮
+                console.log("拒绝")
+            }
+        }).modal("show");
+    }
+</script>
+</html>

@@ -17,9 +17,9 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">MingG'Blog后台管理平台</h2>
-            <a href="#" class="m_item item my_mobile_hide" th:classappend="${n==1} ? 'active'"><i class="min home icon"></i>博客</a>
-            <a href="#" class="m_item item my_mobile_hide" th:classappend="${n==2} ? 'active'"><i class="min idea icon"></i>分类</a>
-            <a href="#" class="m_item item my_mobile_hide" th:classappend="${n==3} ? 'active'"><i class="min tags icon"></i>标签</a>
+            <a href="#" th:href="@{/admin/blogs}"class="m_item item my_mobile_hide" th:classappend="${n==1} ? 'active'"><i class="min home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class="m_item item my_mobile_hide" th:classappend="${n==2} ? 'active'"><i class="min idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}"class="m_item item my_mobile_hide" th:classappend="${n==3} ? 'active'"><i class="min tags icon"></i>标签</a>
             <!--右边头像-->
             <div class="right menu m_item my_mobile_hide">
                 <div class="ui dropdown item">
@@ -93,6 +93,7 @@
             <script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
             <script src="../static/lib/qrcode/qrcode.js" th:src="@{/lib/prism/qrcode.js}"></script>
             <script src="../static/lib/weypoints/jquery.waypoints.js" th:src="@{/lib/weypoints/jquery.waypoints.js}"></script>
+            <script src="../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
         </th:block>
 
 </body>

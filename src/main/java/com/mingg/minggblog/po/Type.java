@@ -1,5 +1,6 @@
 package com.mingg.minggblog.po;
 
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Type {
     @Id
     @GeneratedValue
     private Long id;
+    @NotBlank(message = "分类名字不能为空")
     private String name;
 
     //type对应多个blog
