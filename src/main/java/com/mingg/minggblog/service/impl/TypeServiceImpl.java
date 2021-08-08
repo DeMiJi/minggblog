@@ -46,7 +46,7 @@ public class TypeServiceImpl implements TypeService {
     @Transient
     @Override
     public List<Type> listType() {
-        return null;
+        return typeRepository.findAll();
     }
 
     @Transient

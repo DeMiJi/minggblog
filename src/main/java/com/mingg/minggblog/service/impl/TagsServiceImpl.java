@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.beans.Transient;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,7 +47,23 @@ public class TagsServiceImpl implements TagsService {
     @Transient
     @Override
     public List<Tag> listTags() {
-        return null;
+        return tagsRepository.findAll();
+    }
+
+    @Override
+    public List<Tag> listTags(String ids) {
+        return tagsRepository.findAllById(convertToList(ids));
+    }
+
+    private List<Long> convertToList(String ids) {
+        List<Long> list = new ArrayList<>();
+        if (!"".equals(ids) && ids != null) {
+            String[] idarray = ids.split(",");
+            for (int i=0; i < idarray.length;i++) {
+                list.add(new Long(idarray[i]));
+            }
+        }
+        return list;
     }
 
     @Transient

@@ -18,6 +18,8 @@ public interface TagsService {
     //查询所有的分类
     List<Tag> listTags();
 
+    List<Tag> listTags(String ids);
+
     List<Tag> listTagsTop(Integer size);
     //修改
     Tag updateTags(Long id, Tag tag);

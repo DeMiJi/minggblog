@@ -18,10 +18,16 @@ public class Blog {
     @GeneratedValue
     private Long id;
     private String title;
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
     private String content;
     private String firstPicture;
     private String flag;
     private Integer views;
+    @Transient
+    private String tagsIds;
+
+    private String description;
     //赞赏是否开启
     private boolean appreciation;
     //转载声明是否开启
@@ -41,7 +47,9 @@ public class Blog {
     @ManyToOne
     private Type type;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST})
+//    @ManyToMany(cascade = {CascadeType.PERSIST})
+//    private List<Tag> tags = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Tag> tags = new ArrayList<>();
 
     @ManyToOne
@@ -49,4 +57,29 @@ public class Blog {
 
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments = new ArrayList<>();
+
+
+
+    public void init(){
+        this.tagsIds = tagsToIds(this.getTags());
+    }
+
+    // convert tags list to string
+    private String tagsToIds(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if (flag) {
+                    ids.append(",");
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return tagsIds;
+        }
+    }
 }
