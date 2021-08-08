@@ -7,7 +7,9 @@ import com.mingg.minggblog.service.TagsService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.beans.Transient;
@@ -69,7 +71,8 @@ public class TagsServiceImpl implements TagsService {
     @Transient
     @Override
     public List<Tag> listTagsTop(Integer size) {
-        return null;
+        Pageable pageable = PageRequest.of(0, size, Sort.by(Sort.Direction.DESC, "blogs.size"));
+        return tagsRepository.findTop(pageable);
     }
 
     @Transient
