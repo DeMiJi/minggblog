@@ -113,7 +113,7 @@
                         <td th:text="${blog.updateTime}">2021-7-23 15:30</td>
                         <td class="aligned">
                             <a th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" href="#" class="ui mini teal button">编辑</a>
-                            <a th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" href="#" class="ui mini red button">删除</a>
+                            <a href="javascript:void(0)" th:onclick="|javascript:oponmodal('${blog.id}')|" class="ui mini red button" >删除</a>
                         </td>
                     </tr>
                     </tbody>
@@ -138,6 +138,17 @@
 
         </div>
     </div>
+<!--确认删除弹出层-->
+<div class="ui modal tiny">
+    <div class="header title">删除标签</div>
+    <div class="content">
+        <p>你确定删除这条标签吗？</p>
+    </div>
+    <div class="actions">
+        <a class="ui negative button">否</a>
+        <a class="ui positive button">是</a>
+    </div>
+</div>
 <br>
 <br>
 <br>
@@ -218,6 +229,29 @@
             recommend : $("[name='recommend']").prop('checked'),
             page : $("[name='page']").val()
         });
+    }
+
+    function oponmodal(url) {
+        $(".ui.modal").modal({
+            onShow: function () {
+                console.log("正在显示");
+            },
+            onVisible: function () {
+                console.log("完全显示");
+            },
+            onHide: function () {
+                console.log("开始隐藏");
+            },
+            onHidden: function () {
+                console.log("完全隐藏");
+            },
+            onApprove:function () { //单击确认按钮
+                window.location.href ="blogs/" + url + "/delete";
+            },
+            onDeny:function () {  //单击取消按钮
+                console.log("拒绝")
+            }
+        }).modal("show");
     }
 </script>
 </html>
