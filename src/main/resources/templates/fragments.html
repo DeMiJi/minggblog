@@ -23,12 +23,14 @@
             <a href="" class="m_item item my_mobile_hide" th:classappend="${n==4} ? 'active'"><i class="min clone icon"></i>归档</a>
             <a href="" class="m_item item my_mobile_hide" th:classappend="${n==5} ? 'active'"><i class="min info icon"></i>关于我</a>
             <!--右边搜索-->
-            <div class="item right m_item my_mobile_hide">
-                <div class="ui input icon">
-                    <input type="text" placeholder="Search...">
-                    <i class="icon search link"></i>
+                <div class="item right m_item my_mobile_hide">
+                    <form action="#" name="search" th:action="@{/search}" method="post" target="_blank">
+                        <div class="ui input icon">
+                            <input type="text" name="query" placeholder="Search..." th:value="${query}">
+                            <i onclick="document.forms['search'].submit()" class="icon search link"></i>
+                        </div>
+                    </form>
                 </div>
-            </div>
         </div>
     </div>
     <!--手机适配图标-->
