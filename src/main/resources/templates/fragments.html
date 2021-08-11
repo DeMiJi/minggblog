@@ -17,11 +17,11 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">MingG'Blog</h2>
-            <a href="" class="m_item item my_mobile_hide" th:classappend="${n==1} ? 'active'"><i class="min home icon"></i>首页</a>
-            <a href="" class="m_item item my_mobile_hide" th:classappend="${n==2} ? 'active'"><i class="min idea icon"></i>分类</a>
-            <a href="" class="m_item item my_mobile_hide" th:classappend="${n==3} ? 'active'"><i class="min tags icon"></i>标签</a>
-            <a href="" class="m_item item my_mobile_hide" th:classappend="${n==4} ? 'active'"><i class="min clone icon"></i>归档</a>
-            <a href="" class="m_item item my_mobile_hide" th:classappend="${n==5} ? 'active'"><i class="min info icon"></i>关于我</a>
+            <a href="" th:href="@{/}" class="m_item item my_mobile_hide" th:classappend="${n==1} ? 'active'"><i class="min home icon"></i>首页</a>
+            <a href="" th:href="@{/types/-1}" class="m_item item my_mobile_hide" th:classappend="${n==2} ? 'active'"><i class="min idea icon"></i>分类</a>
+            <a href="" th:href="@{/tags/-1}" class="m_item item my_mobile_hide" th:classappend="${n==3} ? 'active'"><i class="min tags icon"></i>标签</a>
+            <a href="" th:href="@{/archives}" class="m_item item my_mobile_hide" th:classappend="${n==4} ? 'active'"><i class="min clone icon"></i>归档</a>
+            <a href="" th:href="@{/about}" class="m_item item my_mobile_hide" th:classappend="${n==5} ? 'active'"><i class="min info icon"></i>关于我</a>
             <!--右边搜索-->
                 <div class="item right m_item my_mobile_hide">
                     <form action="#" name="search" th:action="@{/search}" method="post" target="_blank">

@@ -438,7 +438,7 @@ h5,h6{font-size:1em;}
                     <div class="eleven wide column">
                         <ui class="list">
                             <li>作者：<span th:text="${blog.user.nickname}">邓明金</span><a href="#" target="_blank" th:href="@{/about}">（联系作者）</a></li>
-                            <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2021-7-22</span></li>
+                            <li>发表时间：<span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd HH:mm')}">2021-7-22</span></li>
                             <li>版权申明：自由转载-非商业-保持著名（创意可许-3.0）</li>
                             <li>公众号转载：请在文末添加作者公众号二维码</li>
                         </ui>

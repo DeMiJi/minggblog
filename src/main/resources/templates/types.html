@@ -24,41 +24,58 @@
                         <h3 class="ui teal header">分类</h3>
                     </div>
                     <div class="right aligned column">
-                        共<h3 class="ui orange header my_inline_block my_text_thin">14</h3>篇
+                        共<h3 class="ui orange header my_inline_block my_text_thin" th:text="${#arrays.length(types)}">14</h3>个
                     </div>
                 </div>
             </div>
             <div class="ui attached segment my_padding_td">
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic teal button">思考与感悟</a>
-                    <div class="ui basic teal left pointing label">24</div>
-                </div>
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic button">java</a>
-                    <div class="ui basic left pointing label">24</div>
-                </div>
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic button">Golang</a>
-                    <div class="ui basic left pointing label">24</div>
-                </div>
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui basic left pointing label">24</div>
-                </div>
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui basic left pointing label">24</div>
-                </div>
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui basic left pointing label">24</div>
-                </div>
-                <div class="ui labeled button my_margin_tb_tiny">
-                    <a href="#" class="ui basic button">思考与感悟</a>
-                    <div class="ui basic left pointing label">24</div>
+                <div class="ui labeled button my_margin_tb_tiny" th:each="type : ${types}">
+                    <a href="#"  th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id == activeTypeId} ? 'teal'" th:text="${type.name}">思考与感悟</a>
+                    <div class="ui basic left pointing label" th:classappend="${type.id == activeTypeId} ? 'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
                 </div>
             </div>
             <div class="ui top attached teal segment">
+                <div class="ui padded segment" th:each="blog : ${page.content}">
+                    <div class="ui middle aligned mobile reversed stackable grid">
+                        <div class="eleven wide column">
+                            <h3 class="ui header"><a href="#" style="color: #0a001f" th:text="${blog.title}"  target="_blank" th:href="@{/blog/{id}(id=${blog.id})}">爱得很深的某个人</a></h3>
+                            <p class="my_text" th:text="|${blog.description}......|">明明知道我会难受，你却还是这样，你有想过我的感受吗？我突然觉得你好自私。心里有中莫名感觉，我真得那么差吗，让你讨厌？ 你是真得那么喜欢她吗？为什么你爱说我不好的地方呢？</p>
+                            <div class="ui grid">
+                                <div class="eleven wide column">
+                                    <div class="ui mini horizontal link list">
+                                        <div class="item">
+                                            <img src="https://picsum.photos/100/100" alt="" class="ui avatar image" th:src="@{${blog.user.avatar}}">
+                                            <div class="content">
+                                                <a href="#" class="header" th:text="${blog.user.nickname}">MingG</a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i>
+                                            <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">
+                                                        2021-7-20
+                                                    </span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i>
+                                            <span th:text="${blog.views}">
+                                                        2553
+                                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label my_padding_min my_text_thin" th:text="${blog.type.name}">认知升级</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="five wide column">
+                            <a href="#" target="_blank" th:href="@{/blog/{id}(id=${blog.id})}">
+                                <img src="https://picsum.photos/800/450" alt="" class="ui rounded image" th:src="@{${blog.firstPicture}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--/*-->
                 <div class="ui vertical padded segment my_padding_lr_mini my_mobile_lr_clear">
                     <div class="ui mobile reversed stackable grid">
                         <div class="eleven wide column">
@@ -167,52 +184,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui vertical padded segment my_padding_lr_mini my_mobile_lr_clear">
-                    <div class="ui mobile reversed stackable grid">
-                        <div class="eleven wide column">
-                            <h3 class="ui header">爱得很深的某个人</h3>
-                            <p class="my_text">明明知道我会难受，你却还是这样，你有想过我的感受吗？我突然觉得你好自私。心里有中莫名感觉，我真得那么差吗，让你讨厌？ 你是真得那么喜欢她吗？为什么你爱说我不好的地方呢？</p>
-                            <div class="ui grid">
-                                <div class="eleven wide column">
-                                    <div class="ui mini horizontal link list">
-                                        <div class="item">
-                                            <img src="https://picsum.photos/100/100" alt="" class="ui avatar image">
-                                            <div class="content">
-                                                <a href="#" class="header">MingG</a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <i class="calendar icon"></i>
-                                            2021-7-20
-                                        </div>
-                                        <div class="item">
-                                            <i class="eye icon"></i>
-                                            2553
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right aligned five wide column">
-                                    <a href="#" target="_blank" class="ui teal basic label my_padding_min my_text_thin">认知升级</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="five wide column">
-                            <a href="#" target="_blank">
-                                <img src="https://picsum.photos/800/450" alt="" class="ui rounded image">
-                            </a>
-                        </div>
+                <!--*/-->
+            </div>
+            <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <a href="#" class="ui basic teal button" th:href="@{'/types/'+${activeTypeId}(page=${page.number}-1)}"  th:unless="${page.first}">上一页</a>
+                    </div>
+                    <div class="right aligned column">
+                        <a href="#" class="ui basic teal button" th:href="@{'/types/'+${activeTypeId}(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                     </div>
                 </div>
             </div>
-            <div class="ui bottom attached segment">
-                <div class="ui middle aligned two column grid">
-                    <div class="column">
-                        <a href="#" class="ui basic teal button">上一页</a>
-                    </div>
-                    <div class="right aligned column">
-                        <a href="#" class="ui basic teal button">下一页</a>
-                    </div>
-                </div>
             </div>
         </div>
         </div>
