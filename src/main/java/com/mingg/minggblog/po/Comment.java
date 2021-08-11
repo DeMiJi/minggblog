@@ -21,6 +21,8 @@ public class Comment {
     private String nickname;
     private String email;
     private String content;
+    private boolean adminComment;
+
     private String avatar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
@@ -30,7 +32,8 @@ public class Comment {
 
     //评论自关联
     @OneToMany(mappedBy = "parentComment")
-    private List<Comment> replyComment = new ArrayList<>();
+    private List<Comment> replyComments = new ArrayList<>();
+
     @ManyToOne
     private Comment parentComment;
 }

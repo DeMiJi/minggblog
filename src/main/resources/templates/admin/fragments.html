@@ -18,7 +18,8 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">MingG'Blog后台管理平台</h2>
-            <a href="#" th:href="@{/admin/blogs}"class="m_item item my_mobile_hide" th:classappend="${n==1} ? 'active'"><i class="min home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/index}"class="m_item item my_mobile_hide" th:classappend="${n==0} ? 'active'"><i class="min home icon"></i>首页</a>
+            <a href="#" th:href="@{/admin/blogs}"class="m_item item my_mobile_hide" th:classappend="${n==1} ? 'active'"><i class="min edit outline icon"></i>博客</a>
             <a href="#" th:href="@{/admin/types}" class="m_item item my_mobile_hide" th:classappend="${n==2} ? 'active'"><i class="min idea icon"></i>分类</a>
             <a href="#" th:href="@{/admin/tags}"class="m_item item my_mobile_hide" th:classappend="${n==3} ? 'active'"><i class="min tags icon"></i>标签</a>
             <!--右边头像-->

@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(~{::title})">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../../static/css/index.css" th:href="@{/css/index.css}">
+    <title>error</title>
 </head>
 <body>
-    <h1>错误</h1>
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<th:block th:replace="fragments :: script">
 
+</th:block>
+<!--导航-->
+<nav th:replace="fragments :: muen(0)" class="ui inverted segment attached my_nav_padding my_shadow_small">
+
+</nav>
+<div class="my_container my_padding_td">
+    <div class="ui error message my_padding_td">
+        <div class="ui container">
+            <h2>error</h2>
+            <p>错误</p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部-->
+<footer th:replace="fragments :: footer" class="ui inverted segment vertical my_footer_padding"></footer>
+<script>
+    <!--实现手机端下拉列表-->
+    $('.menu.toggle').click(function () {
+        $('.m_item ').toggleClass('my_mobile_hide');
+    });
+</script>
 </body>
 </html>
