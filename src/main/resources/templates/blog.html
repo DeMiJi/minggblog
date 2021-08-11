@@ -15,37 +15,39 @@
             <div class="ui top attached segment">
                 <div class="ui horizontal link list">
                     <div class="item">
-                        <img src="https://picsum.photos/100/100" alt="" class="ui avatar image">
+                        <img src="https://picsum.photos/100/100" alt="" th:src="@{${blog.user.avatar}}" class="ui avatar image">
                         <div class="content">
-                            <a href="#" class="header">MingG</a>
+                            <a href="#" class="header" th:text="${blog.user.nickname}">MingG</a>
                         </div>
                     </div>
                     <div class="item">
                         <i class="calendar icon"></i>
-                        2021-7-20
+                        <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">
+                        </span>
                     </div>
                     <div class="item">
                         <i class="eye icon"></i>
-                        2553
+                        <span th:text="${blog.views}">
+                        </span>
                     </div>
                 </div>
             </div>
             <!--图片区域-->
             <div class="ui attached segment">
-                <img src="https://picsum.photos/800/450?image=1005" alt="" class="ui rounded fluid image">
+                <img src="https://picsum.photos/800/450?image=1005" alt="" class="ui rounded fluid image" th:src="@{${blog.firstPicture}}">
             </div>
             <!--内容-->
             <div class="ui attached segment padding">
                 <div class="ui right aligned basic segment">
-                    <div class="ui orange basic label">原创</div>
+                    <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
                 </div>
-                <h2 class="ui center aligned header">
+                <h2 class="ui center aligned header" th:text="${blog.title}">
                     被苹果工程师发现 Bug，Cassandra 4.0 暂停发布
                 </h2>
                 <br>
                 <br>
                 <br>
-                <div id="contend"class="typo js-toc-content typo-selection my_padding_lr my_center_padding_2">
+                <div id="contend"class="typo js-toc-content typo-selection my_padding_lr my_center_padding_2" th:utext="${blog.content}">
                     <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
                     <pre><code class="language-css">p { color: red }</code></pre>
                     <p><i class="serif">Typo.css</i> 的目的是，在一致化浏览器排版效果的同时，构建最适合中文阅读的网页排版。</p>
@@ -405,7 +407,7 @@ h5,h6{font-size:1em;}
                 </div>
                 <!--博客信息-->
                 <div class="my_padding_lr">
-                    <div class="ui teal basic left pointing label">
+                    <div class="ui teal basic left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.tagName}">
                         苹果
                     </div>
                 </div>
@@ -435,8 +437,8 @@ h5,h6{font-size:1em;}
                 <div class="ui middle aligned grid">
                     <div class="eleven wide column">
                         <ui class="list">
-                            <li>作者：邓明金（联系作者）</li>
-                            <li>发表时间：2021-7-22</li>
+                            <li>作者：<span th:text="${blog.user.nickname}">邓明金</span><a href="#" target="_blank" th:href="@{/about}">（联系作者）</a></li>
+                            <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2021-7-22</span></li>
                             <li>版权申明：自由转载-非商业-保持著名（创意可许-3.0）</li>
                             <li>公众号转载：请在文末添加作者公众号二维码</li>
                         </ui>
@@ -577,7 +579,7 @@ h5,h6{font-size:1em;}
     <!--底部-->
     <footer th:replace="fragments :: footer" class="ui inverted segment vertical my_footer_padding"></footer>
 </body>
-<script>
+<script th:inline="javascript">
     <!--实现手机端下拉列表-->
     $('.menu.toggle').click(function () {
         $('.m_item ').toggleClass('my_mobile_hide');
@@ -612,8 +614,10 @@ h5,h6{font-size:1em;}
         position: 'left center'
     });
     <!--显示二维码-->
+    var serurl = "127.0.0.1:8080";
+    var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
     var qrcode = new QRCode("qrcode", {
-        text: "http://www.runoob.com",
+        text: serurl+url,
         width: 128,
         height: 128,
         colorDark : "#000000",

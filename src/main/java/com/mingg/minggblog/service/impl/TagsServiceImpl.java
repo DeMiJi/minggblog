@@ -62,7 +62,7 @@ public class TagsServiceImpl implements TagsService {
         if (!"".equals(ids) && ids != null) {
             String[] idarray = ids.split(",");
             for (int i=0; i < idarray.length;i++) {
-                list.add(new Long(idarray[i]));
+                list.add(Long.valueOf(idarray[i]));
             }
         }
         return list;

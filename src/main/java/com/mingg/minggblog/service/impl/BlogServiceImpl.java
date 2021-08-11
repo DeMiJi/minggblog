@@ -5,6 +5,7 @@ import com.mingg.minggblog.dao.BlogRepository;
 import com.mingg.minggblog.po.Blog;
 import com.mingg.minggblog.po.Type;
 import com.mingg.minggblog.service.BlogService;
+import com.mingg.minggblog.util.MarkdownUtils;
 import com.mingg.minggblog.util.MyBeanUtils;
 import com.mingg.minggblog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
@@ -34,6 +35,19 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
+    }
+
+    @Override
+    public Blog getAndConvert(long id) {
+        Blog blog = blogRepository.getOne(id);
+        if (blog == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog, b);
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        return b;
     }
 
     @Override
