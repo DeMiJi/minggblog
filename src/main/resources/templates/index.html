@@ -6,10 +6,6 @@
     <title>首页</title>
 </head>
 <body>
-<!--用CDN的方式引入jquery和semantic框架的包-->
-<th:block th:replace="fragments :: script">
-
-</th:block>
     <!--导航-->
     <nav th:replace="fragments :: muen(1)" class="ui inverted segment attached my_nav_padding my_shadow_small">
 
@@ -95,14 +91,14 @@
                                     <i class="icon idea"></i>分类
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/types/-1}" target="_blank">more <i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="ui teal segment">
                             <div class="ui fluid vertical menu">
                                 <!--小标签-->
-                                <a href="#" class="item" th:each="type : ${types}">
+                                <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item" th:each="type : ${types}">
                                     <span th:text="${type.name}">学习日志</span>
                                     <div class="ui teal left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
                                 </a>
@@ -136,12 +132,12 @@
                                     <i class="icon tags"></i>标签
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                                    <a href="#" target="_blank" th:href="@{/tags/-1}">more <i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="ui segment teal" >
-                            <a href="#" target="_blank" class="ui basic teal left pointing label my_margin_tb_tiny" th:each="tag : ${tags}">
+                            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui basic teal left pointing label my_margin_tb_tiny" th:each="tag : ${tags}">
                                 <span th:text="${tag.tagName}">
                                     方法论
                                 </span>
@@ -206,10 +202,15 @@
 
     </footer>
 </body>
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<th:block th:replace="fragments :: script">
+
+</th:block>
 <script>
     <!--实现手机端下拉列表-->
     $('.menu.toggle').click(function () {
         $('.m_item ').toggleClass('my_mobile_hide');
     });
+
 </script>
 </html>

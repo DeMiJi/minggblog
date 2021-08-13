@@ -9,10 +9,7 @@
     <title>标签新增</title>
 </head>
 <body>
-<!--用CDN的方式引入jquery和semantic框架的包-->
-<th:block th:replace="fragments :: script">
 
-</th:block>
     <!--导航-->
     <nav th:replace="admin/fragments :: muen(3)" class="ui inverted segment attached my_nav_padding my_shadow_small">
         <div class="ui container">
@@ -124,6 +121,10 @@
         </div>
     </footer>
 </body>
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<th:block th:replace="fragments :: script">
+
+</th:block>
 <script>
 
     <!--实现手机端下拉列表-->

@@ -4,8 +4,7 @@
     <title>博客详情页面</title>
 </head>
 <body>
-<!--引用js-->
-<th:block th:replace="fragments :: script"></th:block>
+
     <!--导航-->
     <nav th:replace="fragments :: muen(1)" class="ui inverted segment attached my_nav_padding my_shadow_small"></nav>
     <!--中间-->
@@ -412,28 +411,31 @@ h5,h6{font-size:1em;}
                     </div>
                 </div>
                 <!--赞赏-->
-                <div class="ui center aligned basic segment">
-                    <button id="payButton" class="ui orange basic circular button">
-                        赞赏
-                    </button>
-                </div>
-                <div class="ui payQ flowing popup transition hidden">
-                    <div class="ui orange basic label">
-                        <div class="ui images" style="font-size: inherit!important;">
-                            <div class="image">
-                                <img src="../static/images/wx.png" th:src="@{/images/zfb.png}" alt="" class="ui rounded bordered image" style="width: 120px">
-                                <div>支付宝支付</div>
-                            </div>
-                            <div class="image">
-                                <img src="../static/images/wx.png" th:src="@{/images/wxzf.png}" alt="" class="ui rounded bordered image" style="width: 120px">
-                                <div>微信支付</div>
+                <div th:if="${blog.appreciation}">
+                    <div class="ui center aligned basic segment">
+                        <button id="payButton" class="ui orange basic circular button">
+                            赞赏
+                        </button>
+                    </div>
+                    <div class="ui payQ flowing popup transition hidden">
+                        <div class="ui orange basic label">
+                            <div class="ui images" style="font-size: inherit!important;">
+                                <div class="image">
+                                    <img src="../static/images/wx.png" th:src="@{/images/zfb.png}" alt="" class="ui rounded bordered image" style="width: 120px">
+                                    <div>支付宝支付</div>
+                                </div>
+                                <div class="image">
+                                    <img src="../static/images/wx.png" th:src="@{/images/wxzf.png}" alt="" class="ui rounded bordered image" style="width: 120px">
+                                    <div>微信支付</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <!--博客信息-->
-            <div class="ui attached positive message">
+            <div class="ui attached positive message" th:if="${blog.shareStatment}">
                 <div class="ui middle aligned grid">
                     <div class="eleven wide column">
                         <ui class="list">
@@ -449,7 +451,7 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
             <!--留言区域-->
-            <div class="ui bottom attached segment">
+            <div class="ui bottom attached segment" th:if="${blog.commentable}">
                 <div class="ui teal segment" id="comment-container">
                     <div th:fragment="commentList">
                         <div class="ui comments" style="max-width: 100%;">
@@ -619,6 +621,8 @@ h5,h6{font-size:1em;}
     <!--底部-->
     <footer th:replace="fragments :: footer" class="ui inverted segment vertical my_footer_padding"></footer>
 </body>
+<!--引用js-->
+<th:block th:replace="fragments :: script"></th:block>
 <script th:inline="javascript">
     <!--实现手机端下拉列表-->
     $('.menu.toggle').click(function () {

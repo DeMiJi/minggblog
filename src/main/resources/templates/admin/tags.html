@@ -9,11 +9,7 @@
 </head>
 
 <body>
-<!--用CDN的方式引入jquery和semantic框架的包-->
-<th:block th:replace="fragments :: script">
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
-</th:block>
+
 <!--导航-->
 <nav th:replace="admin/fragments :: muen(3)"  class="ui inverted segment attached my_nav_padding my_shadow_small">
     <div class="ui container">
@@ -117,7 +113,11 @@
 <footer th:replace="admin/fragments :: footer" class="ui inverted segment vertical my_footer_padding">
 
 </footer>
-
+<!--用CDN的方式引入jquery和semantic框架的包-->
+<th:block th:replace="fragments :: script">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+</th:block>
 <script>
     <!--实现手机端下拉列表-->
     $('.menu.toggle').click(function () {
